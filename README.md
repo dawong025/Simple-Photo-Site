@@ -11,9 +11,9 @@ Please follow the instructions below and fill in the information requested when 
 
 |               | Information   |
 |:-------------:|:-------------:|
-| Student Name  | name-here     |
-| Student ID    | id-here       |
-| Student Email | email-here    |
+| Student Name  | Darren Wong   |
+| Student ID    | 918565679     |
+| Student Email | dwong19@mail.sfsu.edu |
 
 
 

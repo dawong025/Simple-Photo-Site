@@ -7,6 +7,7 @@ const logger = require("morgan");
 const handlebars = require("express-handlebars");
 const indexRouter = require("./routes/index");
 const usersRouter = require("./routes/users");
+const { requestPrint } = require('./helpers/debug/debugprinters');
 
 const app = express();
 
@@ -25,7 +26,7 @@ app.engine(
 app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "hbs");
 
-
+//irq --> mw1 --> mw2 --> mw3 --> mwN --> .get
 app.use(logger("dev"));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
@@ -33,6 +34,11 @@ app.use(cookieParser());
 
 app.use(favicon(__dirname + '/public/favicon.ico'));
 app.use("/public", express.static(path.join(__dirname, "public")));
+
+app.use((req,res,next) => {
+  requestPrint(`Method: ${req.method} , Route: ${req.url}`);
+  next();
+});
 
 app.use("/", indexRouter); // route middleware from ./routes/index.js
 app.use("/users", usersRouter); // route middleware from ./routes/users.js

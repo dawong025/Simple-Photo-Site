@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="../public/css/test.css">
+    <title>Post Image</title>
+</head>
+<body>
+    <header>
+        <div class = "navbar">
+            <div class = "container">
+                <div id="title">
+                    <h1>snapshot.</h1>
+                    <p>images at your fingertip.</p>
+                </div>
+                <nav class="nav-bar" id="nav-bar">
+                    <ul>
+                        <li><a href="/index">Home</a></li>
+                        <li><a href="/postimage">Post</a></li>
+                        <li><a href="/login">Login</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <div class="container2">
+        <fieldset>
+            <form class="form">
+                <h1>Post an Image</h1>
+                <p>Enter image information here: </p>
+                
+                <div class="submit-field">
+                    <label>Image Title:</label>
+                    <input type="text" id="my-title" name="my-title" placeholder="Your Image Title" required/>
+                </div>
+        
+                <div class="submit-field">
+                    <label>Image Description:</label>
+                    <textarea name="my-desc" cols=34 rows=5></textarea>
+                </div>
+        
+                <div class="submit-field">
+                    <label>Post an Image: </label>
+                    <input type="file" id="my-pic" name="my-pic" required/>
+                </div>
+        
+                <div class="submit-field">
+                    <input type="checkbox" id="my-TOS" name="my-TOS" required/>
+                    <a id="AUP-text" href="#"> Agree to the Acceptable Use Policy for uploading images </a>
+                </div>
+                
+                <div class="submit-field">
+                    <button type="submit" class="submit-button" id="submit">Submit</button>
+                </div>
+            </form>
+        </fieldset>
+    </div>
+</body>
+</html>

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="../public/css/test.css">
+    <script defer type="text/javascript" src="../public/js/regForm.js"></script>
+    <title>Registration</title>
+</head>
+<body>
+    <header>
+        <div class = "navbar">
+            <div class = "container">
+                <div id="title">
+                    <h1>snapshot.</h1>
+                    <p>images at your fingertip.</p>
+                </div>
+                <nav class="nav-bar" id="nav-bar">
+                    <ul>
+                        <li><a href="/index">Home</a></li>
+                        <li><a href="/postimage">Post</a></li>
+                        <li><a href="/login">Login</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <div class="container2">
+        <fieldset>
+            <form class="form" id="form">
+                <div class="header">
+                    <h1>Registration Form</h1>
+                </div>
+                <div class="submit-field">
+                    <label>Username:</label>
+                    <input type="text" id="username" name="username" placeholder="Your Username"/>
+                </div>
+        
+                <div class="submit-field">
+                    <label>Email: </label>
+                    <input type="email" id="email" name="email" placeholder="Your Email" required />
+                </div>
+            
+                <div class="submit-field">
+                    <label>Password:</label>
+                    <input type="password" id="password" name="password" placeholder="Your Password"/>
+
+                </div>
+            
+                <div class="submit-field">
+                    <label>Confirm Password:</label>
+                    <input type="password" id="conf-password" name="conf-password" placeholder="Confirm Your Password"/>
+                </div>
+            
+                <div class="submit-field">
+                    <input type ="checkbox" id="age" name="age" required/>
+                    <p id="age-text">Are you over 13 years old?</p>
+                </div>
+            
+                <div class="submit-field">
+                    <input type="checkbox" id="my-TOS" name="my-TOS" required/>
+                    <a id="TOS-text" href="https://www.google.com/search?q=terms+of+service+meme&rlz=1C1ONGR_enUS965US965&sxsrf=AOaemvL2XSt5x6087nA6TMHlnOtWpDSirg:1632550962557&source=lnms&tbm=isch&sa=X&ved=2ahUKEwjxns2hvpnzAhXIop4KHZsjDQ8Q_AUoAXoECAEQAw&biw=1280&bih=577&dpr=1.5#imgrc=wjMj58g4AHsolM"> 
+                            Agree to the Terms of Service and Privacy Agreement </a>
+                </div>
+
+                <div class="submit-field">
+                    <button type="submit" class="submit-button" id="submit">Submit</button>
+                </div>
+                </form>
+        </fieldset>
+    </div>
+</body>
+</html>

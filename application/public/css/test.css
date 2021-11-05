@@ -157,6 +157,16 @@ input[type="text"], [type="password"], [type="email"] {
     margin: 10px;
 }
 
+footer {
+    padding: 20px;
+    width: 100%;
+    margin-top: 20px;
+    text-align: center;
+    color: white;
+}
 
+.content {
+    height: 400px;
+}
 
 

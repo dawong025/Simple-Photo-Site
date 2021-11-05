@@ -20,5 +20,8 @@ router.get('/viewpost', (req,res,next) => {
 router.get('/postimage', (req,res,next) => {
   res.render('postimage');
 });
+router.get('/home', (req,res,next) => {
+  res.render('home');
+});
 
 module.exports = router;

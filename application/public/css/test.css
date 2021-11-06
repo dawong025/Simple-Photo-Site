@@ -4,8 +4,11 @@
     padding: 0px;
     box-sizing: border-box;
     font-family: 'Poppins', sans-serif;
+    text-shadow: 1px 1px black;
 }
-
+::placeholder {
+    text-shadow: none;
+}
 body {
     background: url(../images/toronto.jpg) no-repeat center center fixed;
     background-size: cover;
@@ -85,6 +88,13 @@ form.search-bar button {
     margin-left: 15px;
 }
 
+.nav-bar, .container {
+    text-shadow: 1px 1px black;
+}
+
+#items-count {
+    text-shadow: 1px 1px black;
+}
 a {
     color: blue;
 }
@@ -106,6 +116,7 @@ a {
 fieldset {
     background: rgba(0, 0, 0, 0.4);
     border-radius: 10px;
+    border-style: none;
     padding: 25px;
     align-items: center;
     justify-content: center;
@@ -155,8 +166,12 @@ input[type="text"], [type="password"], [type="email"] {
 }
 
 #AUP-text {
-    margin-top: -5px;
+    margin-top: -44px;
     font-size: 16px;
+}
+#my-pic {
+    margin-top: 15px;
+    margin-left: 25px;
 }
 
 #age-text{

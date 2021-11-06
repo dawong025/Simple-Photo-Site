@@ -192,11 +192,11 @@ footer {
     grid-area: footer;
 }
 
-/* for index w/o home pictures
-.content {
-    height: 400px;
+
+#content {
+    height: 4000px;
 }
-*/
+
 .container3 {
     display: flex;
     justify-content: center;

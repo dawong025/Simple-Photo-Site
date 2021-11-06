@@ -62,7 +62,7 @@ function createPhotoCard(data, containerDiv){
     };
 }
 
-let mainDiv = document.getElementById("container");
+let mainDiv = document.getElementById("container4");
 if(mainDiv){
     let fetchURL = "https://jsonplaceholder.typicode.com/albums/2/photos"
     fetch(fetchURL)

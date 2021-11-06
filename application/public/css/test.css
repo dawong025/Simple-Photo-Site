@@ -53,6 +53,32 @@ nav li a:hover{
     background: red;
     padding: 7px;
 }
+form.search-bar {
+    display: flex;
+}
+form.search-bar input[type=text] {
+    padding: 10px;
+    padding-left: 50px;
+    padding-right: 50px;
+    font-size: 16px;
+    border: 1px solid grey;
+    float: left;
+    width: 80%;
+    background:white;
+    border-radius: 20px;
+    text-align: center;
+}
+form.search-bar button {
+    float: left;
+    width: 20%;
+    padding: 10px;
+    background: #2196F3;
+    color: white;
+    font-size: 17px;
+    border: 1px solid grey;
+    border-left: none; /* Prevent double borders */
+    border-radius: 20px;
+}
 
 #title p {
     font-size: 15px;

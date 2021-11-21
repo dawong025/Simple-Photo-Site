@@ -10,7 +10,10 @@ const checkUsername = (username) => {
     return usernameChecker.test(username);
 }
 
-const checkPassword = (password) => {}
+const checkPassword = (password) => {
+    let passwordChecker = p;
+}
+
 
 const checkEmail = (email) => {}
 

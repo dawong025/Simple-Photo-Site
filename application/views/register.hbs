@@ -6,32 +6,32 @@
 </head>
 <body>
     
-
     <div class="container2">
         <fieldset>
-            <form class="form" id="form">
+            <form class="form" id="form" method="POST" action="/users/register" 
+        enctype="application/x-www-form-urlencoded">
                 <div class="header">
                     <h1>Registration Form</h1>
                 </div>
                 <div class="submit-field">
                     <label>Username:</label>
-                    <input type="text" id="username" name="username" placeholder="Your Username"/>
+                    <input type="text" id="username" name="username" placeholder="Your Username" required/>
                 </div>
         
                 <div class="submit-field">
                     <label>Email: </label>
-                    <input type="email" id="email" name="email" placeholder="Your Email" required />
+                    <input type="email" id="email" name="email" placeholder="Your Email" required/>
                 </div>
             
                 <div class="submit-field">
                     <label>Password:</label>
-                    <input type="password" id="password" name="password" placeholder="Your Password"/>
+                    <input type="password" id="password" name="password" placeholder="Your Password" required/>
 
                 </div>
             
                 <div class="submit-field">
                     <label>Confirm Password:</label>
-                    <input type="password" id="conf-password" name="conf-password" placeholder="Confirm Your Password"/>
+                    <input type="password" id="conf-password" name="conf-password" placeholder="Confirm Your Password" required/>
                 </div>
             
                 <div class="submit-field">

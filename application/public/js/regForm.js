@@ -8,7 +8,7 @@ const TOS = document.getElementById("TOS");
 
 form.addEventListener("submit",(e)=>{
     //prevents default submit, checks inputs first
-    e.preventDefault();
+    //e.preventDefault();
     validateInputs();
 });
 
@@ -81,7 +81,7 @@ function validateInputs(){
 
     //if all fields are filled and sufficiently passing, reload the page
     if((testUName && testPass)&& (testCPass && testEmail) &&(testAge && testTOS)){
-        location.reload();
+        //location.submit();
     }
     
 

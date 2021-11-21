@@ -96,7 +96,7 @@ form.search-bar button {
     text-shadow: 1px 1px black;
 }
 a {
-    color: blue;
+    color: #2196F3;
 }
 
 .container2 {
@@ -199,6 +199,10 @@ input[type="text"], [type="password"], [type="email"] {
     display:flex;
     flex-direction: row;
     margin: 10px;
+}
+
+textarea {
+    text-shadow: none;
 }
 
 footer {

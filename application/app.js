@@ -4,6 +4,10 @@ const favicon = require('serve-favicon');
 const path = require("path");
 const cookieParser = require("cookie-parser");
 const logger = require("morgan");
+
+var sessions = require("express-session");
+var mysqlSession = require("express-mysql-session")(sessions);
+
 const handlebars = require("express-handlebars");
 const indexRouter = require("./routes/index");
 const usersRouter = require("./routes/users");
@@ -24,8 +28,23 @@ app.engine(
 
 // view engine setup
 app.set("views", path.join(__dirname, "views"));
-app.set("view engine", "hbs");
 
+var mysqlSessionStore = new mysqlSession(
+  {
+    /* using default options */
+  },
+  require('./conf/database')
+);
+
+app.use(sessions({
+  key: "csid",
+  secret: "this is a secret from csc317",
+  store: mysqlSessionStore,
+  resave: false,
+  saveUninitialized: false
+}))
+
+app.set("view engine", "hbs");
 //irq --> mw1 --> mw2 --> mw3 --> mwN --> .get
 app.use(logger("dev"));
 app.use(express.json());
@@ -39,6 +58,14 @@ app.use((req,res,next) => {
   requestPrint(`Method: ${req.method} , Route: ${req.url}`);
   next();
 });
+
+app.use((req,res,next) =>{
+  console.log(req.session);
+  if(req.session.username){
+    res.locals.logged = true;
+  }
+  next();
+})
 
 app.use("/", indexRouter); // route middleware from ./routes/index.js
 app.use("/users", usersRouter); // route middleware from ./routes/users.js

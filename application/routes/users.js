@@ -8,11 +8,12 @@ const {
 } = require ("../helpers/debug/debugprinters");
 var bcrypt = require ("bcrypt");
 
-/* GET users listing. */
+/*
+//GET users listing. 
 router.get('/', function(req, res, next) {
   res.send('respond with a resource');
 });
-
+*/
 router.post("/register", (req,res,next) => {
   let username = req.body.username;
   let email = req.body.email;
@@ -55,6 +56,7 @@ router.post("/register", (req,res,next) => {
   .then(([results,fields]) =>{
     if(results && results.affectedRows){
       successPrint("User.js --> User was created!");
+      req.flash("success","User account has been made!")
       res.redirect("/login");
     }
     else{
@@ -69,6 +71,7 @@ router.post("/register", (req,res,next) => {
     errorPrint("User could not be made", err);
     if(err instanceof UserError){
       errorPrint(err.getMessage());
+      req.flash("error", err.getMessage());
       res.status(err.getStatus());
       res.redirect(err.getRedirectURL());
     }
@@ -106,7 +109,8 @@ router.post("/login", (req,res,next) => {
         req.session.username = username;
         req.session.userId = userId;
         res.locals.logged = true;
-        res.render("index");
+        req.flash("success", "You have been successfully logged in!");
+        res.redirect("/");
       }
       else{
         throw new UserError ("Invalid username and/or password", "/login", 200);
@@ -116,12 +120,28 @@ router.post("/login", (req,res,next) => {
       errorPrint("User login failed");
       if(err instanceof UserError){
         errorPrint(err.getMessage());
+        req.flash("error", err.getMessage());
         res.status(err.getStatus());
         res.redirect("/login");
       }
       else{
         next(err);
       }
-    })
-})
+    });
+});
+
+router.post("/logout", (req,res,next) => {
+  req.session.destroy((err) => {
+    if(err){
+      errorPrint("Session could not be destroyed.");
+      next(err);
+    }
+    else{
+      successPrint("Session was destroyed");
+      res.clearCookie("csid");
+      res.json({status: "OK", message: "User is logged out"});
+    }
+  })
+});
+
 module.exports = router;

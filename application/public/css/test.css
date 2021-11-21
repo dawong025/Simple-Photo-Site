@@ -254,3 +254,15 @@ footer {
     font-size: 8px;
     text-align: center;
 }
+
+#flash-message {
+    position: fixed;
+    left: 50%;
+    top: 15%;
+    transform: translate(-50%, 0);
+}
+
+#flash-message div{
+    text-align: center;
+}
+

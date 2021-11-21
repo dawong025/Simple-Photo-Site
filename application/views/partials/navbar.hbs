@@ -16,9 +16,9 @@
                     <li><a href="/index">Home</a></li>
                     <li><a href="/postimage">Post</a></li>
                     {{#if logged}}
-                    <li><a href="/users/logout">Logout</a></li>
+                    <li><a id="logout-button">Logout</a></li>
                     {{else}}
-                    <li><a href="/login">Login</a></li>
+                    <li><a id="login-button" href="/login">Login</a></li>
                     {{/if}}
                 </ul>
             </nav>

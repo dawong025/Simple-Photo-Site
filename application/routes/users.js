@@ -4,9 +4,10 @@ var db = require("../conf/database");
 const UserError = require ("../helpers/error/UserError");
 const {
   errorPrint,
-  successPrint,
+  successPrint
 } = require ("../helpers/debug/debugprinters");
 var bcrypt = require ("bcrypt");
+const{registerValidator} = require("../middleware/validation");
 
 /*
 //GET users listing. 
@@ -14,11 +15,16 @@ router.get('/', function(req, res, next) {
   res.send('respond with a resource');
 });
 */
-router.post("/register", (req,res,next) => {
+
+router.post("/register", registerValidator, (req,res,next) => {
   let username = req.body.username;
   let email = req.body.email;
   let password = req.body.password;
   let cpassword = req.body.password;
+
+  res.json({
+    message: "Valid user!"
+  });
 
   /**
    * do server side validation

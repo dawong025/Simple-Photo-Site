@@ -1,93 +1,68 @@
 const form = document.getElementById("form");
 const username = document.getElementById("username");
-const password =  document.getElementById("password");
+const password = document.getElementById("password");
 const conf_password = document.getElementById("conf-password");
 const email = document.getElementById("email");
 const age = document.getElementById("age");
 const TOS = document.getElementById("TOS");
 
-form.addEventListener("submit",(e)=>{
+form.addEventListener("submit", (e) => {
     //prevents default submit, checks inputs first
-    //e.preventDefault();
-    validateInputs();
+    if(!validateUser()){
+        e.preventDefault();
+    }
+    if(!validatePassword()){
+        e.preventDefault();
+    }
+    if(!validateCPassword()){
+        e.preventDefault();
+    }
 });
 
-function validateInputs(){
-    const usernameVal = username.value.trim();
-    const passwordVal = password.value.trim();
-    const conf_passwordVal = conf_password.value.trim();
-    
-    //Username check
-    //begins with a letter, followed by 2 or more letters/numbers
-    const regexPatternU = /^[a-zA-Z][a-zA-Z0-9]{2,}/;
-    var regexTestU = regexPatternU.test(usernameVal);
-    var testUName = false;
-
-    //Password Check
+function validateUser(){
+        //Username checks
+        //begins with a letter, followed by 2 or more letters/numbers
+        const regexPatternU = /^\D\w{2,}$/;
+        const usernameVal = username.value.trim();
+        var regexTestU = regexPatternU.test(usernameVal);
+        var testUName = false;
+        
+        if (regexTestU == false) {
+            window.alert("Username must begin with a letter, followed by 2 or more letters/numbers");
+            testUName = false;
+        }
+        else {
+            testUName = true;
+        }
+        return testUName;
+}
+function validatePassword(){
     //Is 8 or more characters long, including 1 or more of the following:
     //uppercase letter, lowercase letter, digit, and symbol (/*-+!@#$^&*)
-    const regexPatternP =/^(?=.{8,}$)(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*\W).*$/;;
+    const regexPatternP = /^(?=.{8,}$)(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*\W).*$/;
+    const passwordVal = password.value.trim();
     var regexTestP = regexPatternP.test(passwordVal);
     var testPass = false;
-    var testCPass = false;
-
-    const emailVal = email.value.trim();
-    var testEmail = false;
-
-    var testAge = false;
-    var testTOS = false;
-
-    //Username checks
-    if(usernameVal === ""){
-        window.alert("Username cannot be blank");
-    }
-    else if(regexTestU==false){
-        window.alert("Username must begin with a letter, followed by 2 or more letters/numbers");
-    }
-    else{
-        testUName = true;
-    }
-
     //Password checks
-    if(passwordVal === ""){
-        window.alert("Password cannot be blank");
+    if (regexTestP == false) {
+        window.alert("Password must be at least 8 characters, with at least 1 uppercase letter, 1 lowercase letter, 1 number, and 1 special character (/*-+!@#$^&*)");
+        testPass = false;
     }
-    else if(regexTestP==false){
-        window.alert("Password must be at least 8 characters, with at least 1 uppercase letter, 1 lowercase letter, 1 number, and 1 special character (/*-+!@#$^&*)")
-    }
-    else{
+    else {
         testPass = true;
     }
-    
+    return testPass;
+}
+function validateCPassword(){
+    const conf_passwordVal = conf_password.value.trim();
+    var testCPass = false;
     //Confirmation password checks
-    if(conf_passwordVal === ""){
-        window.alert("Please confirm your password");
-    }
-    else if(passwordVal != conf_passwordVal){
+    if (passwordVal != conf_passwordVal) {
         window.alert("Password confirmation must match the password from above.");
+        testCPass = false;
     }
-    else{
+    else {
         testCPass = true;
     }
-
-    //other -non-username + non-password related checks
-    if(!(emailVal === "")){
-        testEmail = true;
-    }
-    if(age.checked==true){
-        testAge = true;
-    }
-    if(TOS.checked==true){
-        testTOS= true;
-    }
-
-    //if all fields are filled and sufficiently passing, reload the page
-    if((testUName && testPass)&& (testCPass && testEmail) &&(testAge && testTOS)){
-        //location.submit();
-    }
-    
-
-
-
+    return testCPass;
 }
-

@@ -17,14 +17,16 @@ function validateInputs(){
     const passwordVal = password.value.trim();
     const conf_passwordVal = conf_password.value.trim();
     
+    //Username check
     //begins with a letter, followed by 2 or more letters/numbers
     const regexPatternU = /^[a-zA-Z][a-zA-Z0-9]{2,}/;
     var regexTestU = regexPatternU.test(usernameVal);
     var testUName = false;
 
+    //Password Check
     //Is 8 or more characters long, including 1 or more of the following:
     //uppercase letter, lowercase letter, digit, and symbol (/*-+!@#$^&*)
-    const regexPatternP =/^(?=.{8,})(?=.*[A-Z])(?=.*[0-9])(?=.*[/*-+!@#$^&*]).*$/;
+    const regexPatternP =/^(?=.{8,}$)(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*\W).*$/;;
     var regexTestP = regexPatternP.test(passwordVal);
     var testPass = false;
     var testCPass = false;

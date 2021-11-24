@@ -11,19 +11,22 @@ const checkUsername = (username) => {
 }
 
 const checkPassword = (password) => {
-    let passwordChecker = p;
+    let passwordChecker = /^(?=.{8,}$)(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*\W).*$/;
+    return passwordChecker.test(password);
 }
 
 
-const checkEmail = (email) => {}
+const checkEmail = (email) => {
+    //let emailChecker = /@/;
+}
 
 const registerValidator = (req, res, next) =>{
     let username = req.body.username;
     if(!checkUsername(username)){
         req.flash("error", "invalid username!!!");
         req.session.save(err => {
-            res.redirect("/registration");
-        });
+            res.redirect("/register");
+        })
     }
     else{
         next();

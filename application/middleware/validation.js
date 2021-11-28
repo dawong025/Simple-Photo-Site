@@ -1,3 +1,5 @@
+var db = require("../conf/database");
+
 const checkUsername = (username) => {
     /**
      * Regex Explanation
@@ -15,13 +17,13 @@ const checkPassword = (password) => {
     return passwordChecker.test(password);
 }
 
-
 const checkEmail = (email) => {
     //let emailChecker = /@/;
 }
 
 const registerValidator = (req, res, next) =>{
     let username = req.body.username;
+    let password = req.body.password;
     if(!checkUsername(username)){
         req.flash("error", "invalid username!!!");
         req.session.save(err => {
@@ -35,7 +37,33 @@ const registerValidator = (req, res, next) =>{
 }
 
 const loginValidator = (req, res, next) =>{
-    
+    let username = req.body.username;
+    let password = req.body.password;
+
+    let baseSQL = "SELECT id, username, password FROM users WHERE username=?;";
+    db.execute(baseSQL,[username])
+    .then(([results, fields]) => {
+        if(results && results.length == 1){
+          let hashedPassword = results[0].password;
+          userId = results[0].id;
+          const test = bcrypt.compare(password, hashedPassword);
+          if(!test){
+            req.flash("error", "invalid password!!!");
+            req.session.save(err => {
+                res.redirect("/login");
+            })
+          }
+          else{
+              next();
+          }
+        }
+        else{
+            req.flash("error", "invalid username!!!");
+            req.session.save(err => {
+                res.redirect("/login");
+            })
+        }
+    })
 }
 
 module.exports = {registerValidator, loginValidator};

@@ -8,35 +8,35 @@ const TOS = document.getElementById("TOS");
 
 form.addEventListener("submit", (e) => {
     //prevents default submit, checks inputs first
-    if(!validateUser()){
+    if (!validateUser()) {
         e.preventDefault();
     }
-    if(!validatePassword()){
+    if (!validatePassword()) {
         e.preventDefault();
     }
-    if(!validateCPassword()){
+    if (!validateCPassword()) {
         e.preventDefault();
     }
 });
 
-function validateUser(){
-        //Username checks
-        //begins with a letter, followed by 2 or more letters/numbers
-        const regexPatternU = /^\D\w{2,}$/;
-        const usernameVal = username.value.trim();
-        var regexTestU = regexPatternU.test(usernameVal);
-        var testUName = false;
-        
-        if (regexTestU == false) {
-            window.alert("Username must begin with a letter, followed by 2 or more letters/numbers");
-            testUName = false;
-        }
-        else {
-            testUName = true;
-        }
-        return testUName;
+function validateUser() {
+    //Username checks
+    //begins with a letter, followed by 2 or more letters/numbers
+    const regexPatternU = /^\D\w{2,}$/;
+    const usernameVal = username.value.trim();
+    var regexTestU = regexPatternU.test(usernameVal);
+    var testUName = false;
+
+    if (regexTestU == false) {
+        window.alert("Username must begin with a letter, followed by 2 or more letters/numbers");
+        testUName = false;
+    }
+    else {
+        testUName = true;
+    }
+    return testUName;
 }
-function validatePassword(){
+function validatePassword() {
     //Is 8 or more characters long, including 1 or more of the following:
     //uppercase letter, lowercase letter, digit, and symbol (/*-+!@#$^&*)
     const regexPatternP = /^(?=.{8,}$)(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*\W).*$/;
@@ -53,7 +53,8 @@ function validatePassword(){
     }
     return testPass;
 }
-function validateCPassword(){
+
+function validateCPassword() {
     const conf_passwordVal = conf_password.value.trim();
     var testCPass = false;
     //Confirmation password checks

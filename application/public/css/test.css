@@ -13,6 +13,7 @@ body {
     background: url(../images/toronto.jpg) no-repeat center center fixed;
     background-size: cover;
     background-position: center;
+    grid-area: content;
 }
 
 .navbar {
@@ -21,6 +22,7 @@ body {
     height: 70px;
     display: flex;
     height: 70px;
+    grid-area: navig;
 }
 
 .navbar .container {
@@ -100,6 +102,7 @@ a {
 }
 
 .container2 {
+    grid-area: content;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -220,6 +223,7 @@ footer {
 }
 
 .container3 {
+    grid-area: content;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -236,6 +240,7 @@ footer {
 
 #container4{
     display: grid;
+    grid-area: content;
     height: 80vh;
     margin: 20px auto auto auto;
     grid-template-columns: repeat(4, 1fr);
@@ -265,4 +270,20 @@ footer {
 #flash-message div{
     text-align: center;
 }
+
+/*
+#grid-content {
+    width: 90%;
+    height: 95vh;
+    margin: auto;
+    display: grid;
+    grid-template-rows: 1fr 0.5fr 5 fr .3fr;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-areas:
+    "navig navig navig navig"
+    "content content content content"
+    "content content content content"
+    "footer footer footer footer"
+}
+*/
 

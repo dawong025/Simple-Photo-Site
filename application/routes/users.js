@@ -8,6 +8,7 @@ const {
 } = require ("../helpers/debug/debugprinters");
 var bcrypt = require ("bcrypt");
 const{registerValidator} = require("../middleware/validation");
+const{loginValidator} = require("../middleware/validation");
 
 /*
 //GET users listing. 
@@ -16,7 +17,7 @@ router.get('/', function(req, res, next) {
 });
 */
 
-router.post("/register", (req,res,next) => {
+router.post("/register", registerValidator, (req,res,next) => {
   let username = req.body.username;
   let email = req.body.email;
   let password = req.body.password;
@@ -82,7 +83,7 @@ router.post("/register", (req,res,next) => {
   });
 });
 
-router.post("/login", (req,res,next) => {
+router.post("/login", loginValidator, (req,res,next) => {
   let username = req.body.username;
   let password = req.body.password;
 

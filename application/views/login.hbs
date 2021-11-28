@@ -4,32 +4,32 @@
     <title>Login</title>
 </head>
 <body>
-    
-
-    <div class = "container2">
-        <fieldset>
-            <form class="form" method="POST" action="/users/login" enctype="application/x-www-form-urlencoded">
-                <h2>Login Form</h2>
-                <p>Enter your login information here!</p>
-                <div class="submit-field">
-                    <label>Username:</label>
-                    <input type="text" id="my-username" name="username" class="submit" placeholder="Your Username" required/>
-                </div>
-    
-                <div class="submit-field">
-                    <label>Password:</label>
-                    <input type="password" id="my-password" name="password" class="submit" placeholder="Your Password" required/>
-                </div>
-    
-                <div class="submit-field">
-                    <button type="submit" class="submit-button" id="submit">Submit</button>
-                </div>
-    
-                <div class="submit-field">
-                    <a id="new-user" href="/register"> New User? Register Now! </a>
-                </div>
-            </form>
-        </fieldset>
+    <div id="grid-content">
+        <div class = "container2">
+            <fieldset>
+                <form class="form" method="POST" action="/users/login" enctype="application/x-www-form-urlencoded">
+                    <h2>Login Form</h2>
+                    <p>Enter your login information here!</p>
+                    <div class="submit-field">
+                        <label>Username:</label>
+                        <input type="text" id="my-username" name="username" class="submit" placeholder="Your Username" required/>
+                    </div>
+        
+                    <div class="submit-field">
+                        <label>Password:</label>
+                        <input type="password" id="my-password" name="password" class="submit" placeholder="Your Password" required/>
+                    </div>
+        
+                    <div class="submit-field">
+                        <button type="submit" class="submit-button" id="submit">Submit</button>
+                    </div>
+        
+                    <div class="submit-field">
+                        <a id="new-user" href="/register"> New User? Register Now! </a>
+                    </div>
+                </form>
+            </fieldset>
+        </div>
     </div>
 </body>
 </html>

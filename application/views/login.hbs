@@ -1,35 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <title>Login</title>
 </head>
+
 <body>
-    <div id="grid-content">
-        <div class = "container2">
-            <fieldset>
-                <form class="form" method="POST" action="/users/login" enctype="application/x-www-form-urlencoded">
-                    <h2>Login Form</h2>
-                    <p>Enter your login information here!</p>
-                    <div class="submit-field">
-                        <label>Username:</label>
-                        <input type="text" id="my-username" name="username" class="submit" placeholder="Your Username" required/>
+    <div id="grid">
+        <div class="content">
+            <form class="login-form" method="POST" action="/users/login" enctype="application/x-www-form-urlencoded">
+                <fieldset>
+                    <h1>Login</h1>
+                    <div class="submit-field span-2">
+                        <label class="labelL">Username:</label>
+                        <input type="text" id="username" name="username" class="submit" placeholder="Your Username"
+                            required />
                     </div>
-        
-                    <div class="submit-field">
-                        <label>Password:</label>
-                        <input type="password" id="my-password" name="password" class="submit" placeholder="Your Password" required/>
+
+                    <div class="submit-field span-2">
+                        <label class="labelL">Password:</label>
+                        <input type="password" id="password" name="password" class="submit" placeholder="Your Password"
+                            required />
                     </div>
-        
+
                     <div class="submit-field">
-                        <button type="submit" class="submit-button" id="submit">Submit</button>
+                        <a id="register-link" href="/register"> Register </a>
                     </div>
-        
+
                     <div class="submit-field">
-                        <a id="new-user" href="/register"> New User? Register Now! </a>
+                        <button type="submit" class="submit-button" id="submit-buttonL">Submit</button>
                     </div>
-                </form>
-            </fieldset>
+                </fieldset>
+            </form>
         </div>
     </div>
 </body>
+
 </html>

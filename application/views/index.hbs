@@ -1,18 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <script defer type="text/javascript" src="../public/js/home.js"></script>
-    
-    <title>snapshot.</title> 
+    <title>snapshot.</title>
 </head>
+
 <body>
-    <div id="grid-content">
-        <fieldset id = "picture-count">
-            <h1 id="items-count"></h1>
-        </fieldset>
+    <div id="grid">
         <div id="content">
-            <div id="container4"></div>
+            {{#each results}}
+            {{> card this}}
+            {{/each}}
+            <!--
+                <fieldset id = "picture-count">
+                    <h1 id="items-count"></h1>
+                </fieldset>
+                <div id="content">
+                    <div id="container4"></div>
+                </div>
+                -->
         </div>
     </div>
 </body>
+
 </html>

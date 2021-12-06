@@ -4,44 +4,27 @@
     <title>Viewing Post</title>
 </head>
 <body>
-    <div id="grid-content">
-    <div class="container2">
-        <fieldset>
-            <div class="form" id="form">
-                <h1>View Post</h1>
-                <div class="post">
-                <p><strong>View Post:</strong> In the Wild </p>
+    <div id="grid">
+        <div class="content">
+            <fieldset class="imagepost">
+                <img id="image-post-image" src="/{{currentPost.photopath}}">
+                <div class="form" id="form">
+                    <div id="info">
+                        <header id="image-post-title">
+                            <h2 id="image--post-title-text">{{currentPost.title}}</h2>
+                        </header>
+                        <div id="image-post-author" class="info-tags"> {{currentPost.username}}</div>
+                        <div id="image-post-date" class="info-tags">{{currentPost.created}}</div>
+                        <div id="image-post-desc" class="info-tags">{{currentPost.description}}</div>
+                    </div>
                 </div>
-
-                <div class="post">
-                <p><strong>Post Author:</strong> YoungBoi</p>
+                <div id="messages">
+                    <header id="comment-title">
+                        <h2>Comments</h2>
+                    </header>
                 </div>
-
-                <div class="post">
-                <p><strong>Post Created:</strong> Aug 11, 2021 at 11:59pm</p>
-                </div>
-                
-                <div class="image">
-                <img style="width: 405px; height: 250px;" src="https://lumiere-a.akamaihd.net/v1/images/h_up_19753_7e04bba2.jpeg?region=0,0,2048,878" alt="Group pic post no load :c">
-                </div>
-            </div>
-        </fieldset>
-    </div>
-
-    <div class="container3">
-        <fieldset>
-            <div class="comments">
-                <label>Join the conversation!</label>
-                <div class="submit-field">
-                    <img class="user-icon" src="../public/images/usericon.jpg">
-                    <textarea name="my-comment" cols=42 rows=5></textarea>
-                </div>
-                <div class="submit-field">
-                    <button type="submit" class="submit-button" id="submit">Submit</button>
-                </div>
-            </div>
-        </fieldset>
-    </div>
+            </fieldset>
+        </div>
     </div>
 </body>
 </html>

@@ -1,56 +1,59 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <script defer type="text/javascript" src="../public/js/regForm.js"></script>
     <title>Registration</title>
 </head>
+
 <body>
-    <div id="grid-content">
-    <div class="container2">
-        <fieldset>
-            <form class="form" id="form" method="POST" action="/users/register" 
-        enctype="application/x-www-form-urlencoded">
-                <div class="header">
-                    <h1>Registration Form</h1>
-                </div>
-                <div class="submit-field">
-                    <label>Username:</label>
-                    <input type="text" id="username" name="username" placeholder="Your Username" required/>
-                </div>
-        
-                <div class="submit-field">
-                    <label>Email: </label>
-                    <input type="email" id="email" name="email" placeholder="Your Email" required/>
-                </div>
-            
-                <div class="submit-field">
-                    <label>Password:</label>
-                    <input type="password" id="password" name="password" placeholder="Your Password" required/>
+    <div id="grid">
+        <div class="content">
+            <form class="reg-form" id="form" method="POST" action="/users/register"
+                enctype="application/x-www-form-urlencoded">
+                <fieldset>
+                    <h1>Register</h1>
+                    <div class="submit-field span-2">
+                        <label class="labelR">Username:</label>
+                        <input type="text" id="username" name="username" placeholder="Your Username" required />
+                    </div>
 
-                </div>
-            
-                <div class="submit-field">
-                    <label>Confirm Password:</label>
-                    <input type="password" id="conf-password" name="conf-password" placeholder="Confirm Your Password" required/>
-                </div>
-            
-                <div class="submit-field">
-                    <input type ="checkbox" id="age" name="age" required/>
-                    <p id="age-text">Are you over 13 years old?</p>
-                </div>
-            
-                <div class="submit-field">
-                    <input type="checkbox" id="my-TOS" name="my-TOS" required/>
-                    <a id="TOS-text" href="https://www.google.com/search?q=terms+of+service+meme&rlz=1C1ONGR_enUS965US965&sxsrf=AOaemvL2XSt5x6087nA6TMHlnOtWpDSirg:1632550962557&source=lnms&tbm=isch&sa=X&ved=2ahUKEwjxns2hvpnzAhXIop4KHZsjDQ8Q_AUoAXoECAEQAw&biw=1280&bih=577&dpr=1.5#imgrc=wjMj58g4AHsolM"> 
+                    <div class="submit-field span-2">
+                        <label class="labelR">Email: </label>
+                        <input type="email" id="email" name="email" placeholder="Your Email" required />
+                    </div>
+
+                    <div class="submit-field span-2">
+                        <label class="labelR">Password:</label>
+                        <input type="password" id="password" name="password" placeholder="Your Password" required />
+
+                    </div>
+
+                    <div class="submit-field span-2">
+                        <label class="labelR">Confirm Password:</label>
+                        <input type="password" id="conf-password" name="conf-password"
+                            placeholder="Confirm Your Password" required />
+                    </div>
+
+                    <div class="submit-field span-2">
+                        <input type="checkbox" id="age" name="age" required />
+                        <p id="age-text">Are you over 13 years old?</p>
+                    </div>
+
+                    <div class="submit-field span-2">
+                        <input type="checkbox" id="TOS" name="TOS" required />
+                        <a id="TOS-text"
+                            href="https://www.google.com/search?q=terms+of+service+meme&rlz=1C1ONGR_enUS965US965&sxsrf=AOaemvL2XSt5x6087nA6TMHlnOtWpDSirg:1632550962557&source=lnms&tbm=isch&sa=X&ved=2ahUKEwjxns2hvpnzAhXIop4KHZsjDQ8Q_AUoAXoECAEQAw&biw=1280&bih=577&dpr=1.5#imgrc=wjMj58g4AHsolM">
                             Agree to the Terms of Service and Privacy Agreement </a>
-                </div>
+                    </div>
 
-                <div class="submit-field">
-                    <button type="submit" class="submit-button" id="submit">Submit</button>
-                </div>
-                </form>
-        </fieldset>
-    </div>
+                    <div class="submit-field span-2">
+                        <button type="submit" class="submit-button" id="submit-buttonR">Submit</button>
+                    </div>
+                </fieldset>
+            </form>
+        </div>
     </div>
 </body>
+
 </html>

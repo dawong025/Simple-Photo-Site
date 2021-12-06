@@ -1,5 +1,5 @@
 var db = require("../conf/database");
-
+var bcrypt = require ("bcrypt");
 const checkUsername = (username) => {
     /**
      * Regex Explanation

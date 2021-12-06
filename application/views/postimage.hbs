@@ -2,41 +2,84 @@
 <html lang="en">
 <head>
     <title>Post Image</title>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 </head>
 <body>
-    <div id="grid-content">
-        <div class="container2">
-            <fieldset>
-                <form class="form">
+    <div id="grid">
+        <div class="content">
+                <form class="post-form" method="POST" enctype="multipart/form-data" action="/posts/createPost" >
+                <fieldset>
                     <h1>Post an Image</h1>
-                    <p>Enter image information here: </p>
                     
-                    <div class="submit-field">
-                        <label>Image Title:</label>
-                        <input type="text" id="my-title" name="my-title" placeholder="Your Image Title" required/>
+                    <div class="submit-field span-2">
+                        <label class="labelP">Image Title:</label>
+                        <input type="text" id="title" name="title" placeholder="Your Image Title" required/>
                     </div>
             
-                    <div class="submit-field">
-                        <label>Image Description:</label>
-                        <textarea name="my-desc" cols=34 rows=5></textarea>
+                    <div class="submit-field span-2">
+                        <label class="labelP">Image Description:</label>
+                        <textarea name="description" cols=50 rows=5></textarea>
                     </div>
             
-                    <div class="submit-field">
-                        <label>Post an Image: </label>
-                        <input type="file" id="my-pic" name="my-pic" required/>
+                    <div class="submit-field span-2">
+                        <label class="labelP">Post an Image: </label>
+                        <input type="file" id="pic-upload" name="uploadImage" required/>
                     </div>
             
-                    <div class="submit-field">
+                    <div class="submit-field span-2">
                         <input type="checkbox" id="my-TOS" name="my-TOS" required/>
-                        <a id="AUP-text" href="#"> Agree to the Acceptable Use Policy for uploading images </a>
+                        <a id="AUP-text" href="#" required> Agree to the Acceptable Use Policy for uploading images </a>
                     </div>
                     
                     <div class="submit-field">
-                        <button type="submit" class="submit-button" id="submit">Submit</button>
+                        <button type="submit" class="submit-button" id="submit-buttonP">Submit</button>
                     </div>
+                    </fieldset>
                 </form>
-            </fieldset>
         </div>
     </div>
+    <script>
+        /*
+        const _form = document.getElementById("form");
+        _form.onsubmit = function(event){
+            event.preventDefault();
+            let _body = new FormData(_form);
+            
+            fetch("/posts/createPost", {
+                body: _body,
+                method: "POST"
+            })
+            .then((data) =>{
+                console.log(data);
+                return data.json();
+            })
+            .then((dataAsObject) => {
+                console.log(dataAsObject);
+                alert(dataAsObject.message);
+                location.replace(dataAsObject.redirect);
+            })
+            .catch(err => console.log(err));
+        }
+        */
+        /*
+        const _form = document.getElementById("form");
+        _form.onsubmit = function(event){
+            event.preventDefault();
+            let _body = new FormData(_form);
+
+
+            axios("/posts/createPost", {
+                data: _body,
+                method: "POST"
+            })
+                .then((data) => {
+                    console.log(data.data);
+                    alert(dataAsObject.message);
+                    location.replace(data.data.redirect);
+                })
+                .catch(err => console.log(err));
+        }
+        */
+    </script>
 </body>
 </html>

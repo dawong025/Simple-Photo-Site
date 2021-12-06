@@ -1,3 +1,4 @@
+/*
 var photosLength; //used later to update 
 
 function createPhotoCard(data, containerDiv){
@@ -26,7 +27,7 @@ function createPhotoCard(data, containerDiv){
 
     //fadeOut here utilizes the subdiv
     subDiv.onclick = function(event){
-        /*  [for reference] from Discord as high level idea + a bit of stackoverflow
+          [for reference] from Discord as high level idea + a bit of stackoverflow
         ----------------------------------------------------------------------------
             -get div clicked
             -set default opacity
@@ -37,7 +38,7 @@ function createPhotoCard(data, containerDiv){
                     -update count
                 -update opacity of element
                 -update opacity
-        */
+        
         var targetDiv = event.currentTarget;
         var opacity = 1;
         let fadeEff = setInterval(function(){
@@ -83,3 +84,4 @@ if(mainDiv){
         }
     })
 }
+*/

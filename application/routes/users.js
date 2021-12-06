@@ -1,6 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var db = require("../conf/database");
+const UserModel = require("../models/Users");
 const UserError = require ("../helpers/error/UserError");
 const {
   errorPrint,
@@ -23,6 +24,60 @@ router.post("/register", registerValidator, (req,res,next) => {
   let password = req.body.password;
   let cpassword = req.body.conf-password;
 
+  UserModel.usernameExists(username)
+  .then((userDoesNameExist) => {
+    if(userDoesNameExist){
+      throw new UserError(
+        "Registration Failed: Username already exists",
+        "/register",
+        200
+      );
+    }
+    else{
+      return UserModel.emailExists(email);
+    }
+  })
+  .then((emailDoesExist) =>{
+    if(emailDoesExist){
+      throw new UserError(
+        "Registration Failed: Email already exists",
+        "/register",
+        200
+      );
+    }
+    else{
+      return UserModel.create(username, password, email);
+    }
+  })
+  .then((createdUserId) => {
+    if(createdUserId < 0){
+      throw new UserError(
+        "Server Error: User could not be created",
+        "/registration",
+        500
+      );
+    }
+    else{
+      successPrint("User.js --> user was created!!");
+      req.flash("success", "User account has been made");
+      req.session.save(err=>{
+        res.redirect("/login");
+      })
+    }
+  })
+  .catch((err) => {
+    errorPrint("user could not be made", err);
+    if(err instanceof UserError){
+      errorPrint(err.getMessage());
+      req.flash("error", err.getMessage());
+      res.status(err.getStatus());
+      res.redirect(err.getRedirectURL());
+    }
+    else{
+      next(err);
+    }
+  });
+  /*
   db.execute("SELECT * FROM users WHERE username=?",[username])
   .then(([results,fields]) => {
     if(results && results.length == 0){
@@ -33,7 +88,7 @@ router.post("/register", registerValidator, (req,res,next) => {
         "Registration Failed: Username already exists",
         "/register",
         200
-      )
+      );
     }
   })
   .then(([results,fields]) => {
@@ -81,6 +136,7 @@ router.post("/register", registerValidator, (req,res,next) => {
       next(err);
     }
   });
+  */
 });
 
 router.post("/login", loginValidator, (req,res,next) => {
@@ -90,7 +146,7 @@ router.post("/login", loginValidator, (req,res,next) => {
   /*
     do server side validation
   */
-
+  /*
     let baseSQL = "SELECT id, username, password FROM users WHERE username=?;";
     let userId;
     db.execute(baseSQL,[username])
@@ -104,8 +160,12 @@ router.post("/login", loginValidator, (req,res,next) => {
           throw new UserError ("invalid username and/or password", "/login", 200);
         }
     })
-    .then((passwordsMatched) => {
-      if(passwordsMatched){
+    */
+   UserModel.authenticate(username,password)
+    //.then((passwordsMatched) => {
+      .then((loggedUserId) => {
+      //if(passwordsMatched){
+        if(loggedUserId){
         successPrint(`User ${username} is logged in`);
         //res.cookie("logged",username, {expires: new Date(Date.now()+900000), httpOnly: false});
         req.session.username = username;

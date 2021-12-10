@@ -13,6 +13,7 @@ const handlebars = require("express-handlebars");
 const indexRouter = require("./routes/index");
 const usersRouter = require("./routes/users");
 const postsRouter = require("./routes/posts");
+const commentRouter = require("./routes/comments");
 const { requestPrint } = require('./helpers/debug/debugprinters');
 
 const app = express();
@@ -77,7 +78,7 @@ app.use((req,res,next) =>{
 app.use("/", indexRouter); // route middleware from ./routes/index.js
 app.use("/users", usersRouter); // route middleware from ./routes/users.js
 app.use("/posts", postsRouter); //route middleware from ./routes/posts.js
-
+app.use("/comments", commentRouter);
 /**
  * Catch all route, if we get to here then the 
  * resource requested could not be found.

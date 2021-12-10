@@ -103,6 +103,7 @@ async function makeCommentsTable(connection) {
       comment MEDIUMTEXT NOT NULL,
       fk_postId INT NOT NULL,
       fk_authorId INT NOT NULL,
+      created DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
       PRIMARY KEY (id),
       UNIQUE INDEX id_UNIQUE (id ASC) VISIBLE,
       INDEX comment_author_idx (fk_authorId ASC) VISIBLE,

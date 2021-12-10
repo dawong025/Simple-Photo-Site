@@ -16,9 +16,8 @@ Please follow the instructions below and fill in the information requested when 
 | Student Email | dwong19@mail.sfsu.edu |
 
 
-
-# Build/Run Instructions
 http://localhost:3000/
+# Build/Run Instructions
 ## Build Instructions
 1. steps here
 2. steps here

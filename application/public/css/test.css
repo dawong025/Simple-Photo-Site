@@ -122,7 +122,7 @@ form.search-bar button {
     grid-template-rows: repeat(4, 1fr);
     grid-auto-rows: 1fr;
     grid-auto-columns: 1fr;
-    gap: .50em;
+    gap: .25em;
     width: 90%;
     color: white;
     grid-template-areas:
@@ -142,7 +142,7 @@ form.search-bar button {
     grid-template-rows: repeat(4, 1fr);
     grid-auto-rows: 1fr;
     grid-auto-columns: 1fr;
-    gap: .50em;
+    gap: .25em;
     width: 90%;
     color: white;
 }
@@ -287,7 +287,7 @@ input, button {
     margin-left: 250px;
 }
 /*
-    Footer CSS
+    Post Image CSS
 */
 .post-form fieldset{
     grid-area: content;
@@ -300,7 +300,7 @@ input, button {
     column-gap: 1rem;
     row-gap: 2rem;
     padding: 3rem;
-    padding-right: 0rem;
+    padding-right: 2rem;
     padding-left: 3rem;
     box-shadow: 0 0.75rem 2rem 0 rgba(0,0,0,0.15);
     color: black;
@@ -314,7 +314,7 @@ input, button {
     font-weight: 500;
     margin-bottom: 0.50rem;
     margin-top: -30px;
-    margin-left: 40px;
+    margin-left: 10%;
 }
 .post-form input {
     padding: 0.75rem;
@@ -323,13 +323,13 @@ input, button {
     border: 2px solid white;
     border-radius: 0.25rem;
     margin-bottom: 20px;
-    margin-left: 40px;
+    margin-left: 10%;
 }
-textarea {
+.post-form textarea {
     text-shadow: none;
     border-radius: 0.25rem;
     border: 0;
-    margin-left: 40px;
+    margin-left: 10%;
 }
 #pic-upload {
     border: none;
@@ -349,16 +349,16 @@ textarea {
     font-size: 0.8rem;
     margin-top: -20px;
 }
+/*
+    Footer CSS
+*/
 footer {
     padding: 20px;
     width: 100%;
-    margin-top: 200%;
+    margin-top: 700px;
     text-align: center;
     color: white;
 }
-/*
-    Post Image CSS
-*/
 /*
     Card CSS
 */
@@ -367,49 +367,203 @@ footer {
     background-color: rgba(202, 180, 180, 0.6);
     border-radius: 10px;
     color: black;
+    display: grid;
+    justify-self: stretch;
+    grid-template-rows: 12rem auto 4rem;
+    grid-template-columns: 1fr;
+    gap: .2rem 0 0;
+    height: 300px;
+    grid-template-areas:
+    "picture"
+    "text"
+    "details";
 }
 .card img {
+    margin: auto;
     margin-top: 10px;
+    width: 90%;
+    height: 90%;
+    justify-self: center;
+    grid-area: picture;
 }
 .card p {
-    margin-bottom: 5px;
-    margin-bottom: 5px;
+    margin: auto;
 }
-.card a {
+.card-body {
+    grid-area: text;
+    background-color: rgba(170,90,90,0.4);
+    overflow-y: auto;
+    display: flex;
+    flex-flow: column nowrap;
+    scroll-behavior: smooth;
+}
+.card-text{
+    font-size: 14px;
+}
+.card a{
     text-decoration: none;
+    grid-area: details;
+}
+.card-details {
+    font-size: 16px;
+    background-color: orange;
+    padding-top: 0.75rem;
+    padding-bottom: 0.75rem;
+    border-radius: 0.25rem;
+    text-decoration: none;
+    margin-bottom: 20px;
 }
 .card a:link {
-    color: #2196F3;
+    color: black;
 }
 .card a:visited {
-    color: #2196F3;
+    color: black;
 }
 /*
     View Post Image CSS
 */
-.imagepost{
+#post-container {
     grid-area: content;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%,-50%);
-    background-color: rgba(202, 180, 180, 0.6);
+    justify-self: center;
+    padding-top: .35em;
+    padding-bottom: .35em;
+    margin-top: -90px;
     display: grid;
-    column-gap: 1rem;
-    row-gap: 2rem;
-    padding: 3rem;
+    grid-gap: .2em;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr;
+    grid-template-areas: 
+    "photoinfo comments";
+}
+#photo-container {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    grid-area: photoinfo;
+
+    background-color: rgba(202, 180, 180, 0.6);
     box-shadow: 0 0.75rem 2rem 0 rgba(0,0,0,0.15);
     color: black;
     font-size: 1.25rem;
     border-radius: 0.25rem;
-    margin-top: 200px;
     border: 0;
+    padding: 1rem;
+    height: 120vh;
+    max-height: 120vh;
+
+}
+#info{
+    background-color: rgba(170, 90, 90, 0.15);
+    border-radius: 0.25rem;
+    padding: 1%;
+}
+#image-post-author {
+    font-size: 12px;
+}
+#image-post-date{
+    font-size: 12px;
+}
+#image-post-desc{
+    color: dark-gray;
+    font-size: 16px;
+    background-color: rgba(170, 90, 90, 0.2);
+    border-radius: 0.25rem;
+    padding: 1%;
+    margin-top: 5px;
+}
+#comment-container {
+    display: grid;
+    justify-self: stretch;
+    grid-area: comments;
+    grid-template-rows: 45px auto 75px;
+    grid-template-columns: 1fr;
+    gap: .2rem;
+    height: 120vh;
+    max-height: 120vh;
+    grid-template-areas:
+    "title"
+    "messages"
+    "commentbox";
+
+    background-color: rgba(202, 180, 180, 0.6);
+    box-shadow: 0 0.75rem 2rem 0 rgba(0,0,0,0.2);
+    color: black;
+    font-size: 1.25rem;
+    border-radius: 0.25rem;
+    border: 0;
+    padding: 1rem;
+}
+#messages {
+    grid-area: messages;
+    overflow-y: auto;
+    display: flex;
+    flex-flow: column-reverse nowrap;
+    scroll-behavior: smooth;
+    border-radius: 0.25rem;
+    font-size: 14px;
+    margin-left: 2%;
+    margin-bottom: 1%;
+}
+div[id^=message-]{
+    display: grid;
+    grid-template-rows: 0.3fr 1fr;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.2em;
+    padding: 0.25rem;
+    margin:0.2rem;
+    font-size: 1rem;
+    background-color: rgba(179, 87, 87, 0.2);
+    border-radius: 0.25rem;
+    grid-template-areas: 
+    "author created"
+    "comment comment";
+}
+.author-text {
+    grid-area: author;
+    justify-self: start;
+    color: #2196F3;
+    text-shadow: 0.75px 0.75px black;;
+}
+.comment-text{
+    grid-area: comment;
+    overflow: hiden;
+    text-overflow: ellipsis;
+    max-height: 45px;
+    min-height: 45px;
+}
+.date-posted{
+    grid-area: created;
+    justify-self: end;
+}
+#comment-box {
+    padding: 0.20rem;
+    display: flex;
+    grid-area: commentbox;
+}
+#comment-box textarea {
+    width: 90%;
+    border-radius: .25rem;
+}
+#info {
+    display: inline-block;
+    vertical-align: middle;
 }
 .info-tags {
     font-size: 16px;
 }
 #image-post-image {
-    width: 100%;
-    max-width: 600px;
-    max-height: 600px;
+    width: 85%;
+    margin: auto;
+    margin-top: 25px;
+    justify-content: center;
+}
+#submit-buttonV {
+    background-color: orange;
+    border: none;
+    padding-left: 1.6rem;
+    padding-right: 1.6rem;
+    padding-top: 0.75rem;
+    padding-bottom: 0.75rem;
+    font-size: 16px;
+    border-radius: 0.25rem;
 }

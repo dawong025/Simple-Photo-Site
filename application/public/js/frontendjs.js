@@ -31,9 +31,9 @@ function createCard(postData){
     <div class="card-body">
         <p class="card-title">${postData.title}</p>
         <p class="card-text">${postData.description}</p>
-        <a href="/post/${postData.id}" class="anchor-buttons">[Post Details]</a>
     </div>
-</div>`;
+    <a id="card-post-det" class="card-details" href="/post/${postData.id}" class="anchor-buttons">Post Details</a>
+    </div>`;
 }
 
 function executeSearch(){
@@ -71,3 +71,4 @@ let searchButton = document.getElementById("search-button");
 if(searchButton){
     searchButton.onclick = executeSearch;
 }
+let searchText = document.getElementById("search-text");

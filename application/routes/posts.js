@@ -11,6 +11,7 @@ var crypto = require("crypto");
 var PostModel = require("../models/Posts");
 var PostError = require("../helpers/error/PostError");
 const { response } = require("express");
+const { body, validationResult } = require('express-validator');
 
 var storage = multer.diskStorage({
     destination: function (req, file, cb) {
@@ -49,26 +50,17 @@ router.post("/createPost", uploader.single("uploadImage"), (req, res, next) => {
                 destinationOfThumbnail,
                 fk_userId,
             );
-            /*
-            let baseSQL = `INSERT INTO posts (title, description, photopath, thumbnail, created, fk_userid) VALUE (?,?,?,?,now(),?);`
-            return db.execute(baseSQL,[title, description, fileUploaded, destinationOfThumbnail, fk_userId]);
-            */
         })
         .then((postWasCreated) => {
-            //.then(([results, fields]) => {
             if (postWasCreated) {
-                //if(results && results.affectedRows){
                 req.flash("success", "Your post was created successfully!");
 
                 req.session.save(err => {
                     res.redirect("/")
                 })
-
-                //resp.json({status: "OK", message: "Post was created", "redirect":"/"});
             }
             else {
                 throw new PostError("Post could not be created!!", "postImage", 200);
-                //resp.json({status: "OK", message: "Post was not created", "redirect":"/postimage"});
             }
         })
         .catch((err) => {
@@ -94,14 +86,6 @@ router.get("/search", async (req, res, next) => {
             });
         }
         else {
-            /*
-            let baseSQL = "SELECT id, title, description, thumbnail, concat_ws('', title, description) \
-        AS haystack \
-        FROM posts \
-        HAVING haystack LIKE ?;"
-            let sqlReadySearchTerm = "%" + searchTerm + "%";
-            let [results, fields] = await db.execute(baseSQL, [sqlReadySearchTerm]);
-            */
             let results = await PostModel.search(searchTerm);
             if (results.length) {
                 res.send({

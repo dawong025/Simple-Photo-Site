@@ -369,7 +369,7 @@ footer {
     color: black;
     display: grid;
     justify-self: stretch;
-    grid-template-rows: 12rem auto 4rem;
+    grid-template-rows: 12rem 4rem 4rem;
     grid-template-columns: 1fr;
     gap: .2rem 0 0;
     height: 300px;

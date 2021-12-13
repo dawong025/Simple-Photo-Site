@@ -15,10 +15,11 @@ Please follow the instructions below and fill in the information requested when 
 | Student ID    | 918565679     |
 | Student Email | dwong19@mail.sfsu.edu |
 
-#Installed on Project
-1. npm i bcrypt
-2. npm i express session express-mysql-session
-3. npm npm install express-validator
+# Installed on Project
+1. npm install
+2. npm i bcrypt
+3. npm i express session express-mysql-session
+4. npm npm install express-validator
 
 # Build/Run Instructions
 ## Build Instructions

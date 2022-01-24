@@ -29,3 +29,16 @@ Please follow the instructions below and fill in the information requested when 
 ## Run Instructions
 1. npm start
 2. localhost:3000
+
+Additional Notes
+1. For flash messages not showing properly or login not switching to logout during login, one fix can be used
+   to wrap redirect a req.session.save function call
+
+   req.session.save(err => {
+       res.redirect('/');
+   }) 
+2. for Refactoring for MVC - Users video, change
+   return Promise.reject(-1)
+   to
+   return Promise.resolve(-1)
+   in Users.js authenticate function
